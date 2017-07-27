@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+    <modules>
+        <Doting_Asyncr>
+            <version>1.0</version>
+        </Doting_Asyncr>
+    </modules>
+
+    <global>
+        <resources>
+            <asyncr_setup>
+                <setup>
+                    <module>Doting_Asyncr</module>
+                </setup>
+            </asyncr_setup>
+        </resources>
+        <models>
+            <asyncr>
+                <class>Doting_Asyncr_Model</class>
+            </asyncr>
+        </models>
+        <helpers>
+            <asyncr>
+                <class>Doting_Asyncr_Helper</class>
+            </asyncr>
+        </helpers>
+    </global>
+
+</config>

@@ -20,13 +20,15 @@ class Doting_Asyncr_Model_Job {
 
     public function __destruct() {
         $now = time();
-        Mage::getModel('cron/schedule')
+        $schedule = Mage::getModel('cron/schedule')
             ->setJobCode($this->name)
             ->setStatus(Mage_Cron_Model_Schedule::STATUS_PENDING)
-            ->setPayload(json_encode($this->payload))
             ->setCreatedAt(date('Y-m-d H:i:s', $now))
-            ->setScheduledAt(date('Y-m-d H:i:s', $now + 5))
-            ->save();
+            ->setScheduledAt(date('Y-m-d H:i:s', $now + 5));
+        if ($this->payload) {
+            $schedule->setPayload(json_encode($this->payload));
+        }
+        $schedule->save();
     }
 
 }
